@@ -37,7 +37,7 @@ export default {
       const limit = 10
       const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i)
 
-      const pages = await axios.get('https://hujimori.microcms.io/api/v1/article?limit=0', {
+      const pages = await axios.get('https://hujimori.microcms.io/api/v1/articles?limit=0', {
         headers: { 'X-API-KEY': process.env.API_KEY }
       }).then(res =>
         range(1, Math.ceil(res.data.totalCount / limit)).map(p => ({
