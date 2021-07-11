@@ -1,4 +1,4 @@
-import microcms from 'nuxt-microcms-module'
+import * as microcms from 'nuxt-microcms-module'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -22,7 +22,7 @@ export default {
   ],
 
   router: {
-    extendRoutes(routes, resolve) {
+    extendRoutes (routes, resolve) {
       routes.push({
         path: '/page/:p',
         component: resolve(__dirname, 'pages/index.vue'),
