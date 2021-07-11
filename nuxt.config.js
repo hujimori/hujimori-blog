@@ -31,7 +31,8 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    'nuxt-microcms-module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -55,8 +56,11 @@ export default {
 
   },
 
-  privateRuntimeConfig: {
-    secret: process.env.API_KEY
+  microcms: {
+    options: {
+      serviceDomain: process.env.SERVICE_DOMAIN,
+      apiKey: process.env.API_KEY
+    },
+    mode: process.env.NODE_ENV === 'production' ? 'server' : 'all'
   }
-
 }

@@ -12,14 +12,12 @@
 import Prism from '~/plugins/prism'
 
 export default {
-  async asyncData ({ params, $axios }) {
-    const article = await $axios.$get(`https://hujimori.microcms.io/api/v1/articles/${params.id}`,
-      {
-        headers: {
-          'X-API-KEY': 'f6c9c27f-a98f-4c55-91fb-1a29627c2c9c'
-        }
-      }
-    )
+  async asyncData ({ $microcms, params }) {
+    const article = await $microcms.get({
+      endpoint: 'articles',
+      contentId: params.id
+
+    })
     return { article }
   },
   mounted () {
