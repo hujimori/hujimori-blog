@@ -1,3 +1,4 @@
+import microcms from 'nuxt-microcms-module'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -31,11 +32,11 @@ export default {
   },
 
   generate: {
-    async routes ($microcms) {
+    async routes () {
       const limit = 10
       const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i)
 
-      const pages = await $microcms.get({
+      const pages = await microcms.get({
         endpoint: 'articles',
         queries: { limit: 20 }
       }).then(res =>
