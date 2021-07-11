@@ -31,7 +31,6 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    
   ].concat(process.env.NODE_ENV === 'production' ? [] : ['@nuxtjs/eslint-module']),
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -62,5 +61,7 @@ export default {
       apiKey: process.env.API_KEY
     },
     mode: process.env.NODE_ENV === 'production' ? 'server' : 'all'
-  }
+  },
+
+  target: 'static'
 }
